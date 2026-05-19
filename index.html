@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Cleany Vollreinigung – Textilpflege in Berlin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-text-size-adjust: 100%; line-height: 1.5; font-family: Inter, Arial, sans-serif; scroll-behavior: smooth; }
+  body { background: #e9edf2; color: #13263c; }
+  img { max-width: 100%; height: auto; display: block; }
+
+  .page { display: none; }
+  .page.active { display: block; }
+
+  .section-inner { max-width: 1280px; margin: 0 auto; padding: 0 32px; }
+  .section-label { text-transform: uppercase; letter-spacing: 0.3em; font-size: 12px; font-family: Inter, Arial, sans-serif; margin-bottom: 24px; }
+  .section-label-green { color: #1a8a67; }
+  .section-label-white { color: #7dd4b0; }
+
+  .logo-img { height: 72px; width: auto; }
+
+  /* ── HEADER ── */
+  .header { border-bottom: 1px solid #d7dde5; background: #edf1f5; position: sticky; top: 0; z-index: 50; }
+  .header-inner { max-width: 1280px; margin: 0 auto; padding: 20px 32px; display: flex; align-items: center; justify-content: space-between; }
+  .logo-area { display: flex; align-items: center; gap: 12px; cursor: pointer; }
+
+  nav { display: flex; align-items: center; gap: 48px; font-size: 15px; font-family: Inter, Arial, sans-serif; color: #22374d; }
+  nav a { text-decoration: none; color: inherit; cursor: pointer; transition: color 0.15s; }
+  nav a:hover { color: #1a8a67; }
+  .header-btns { display: flex; align-items: center; gap: 12px; }
+  .btn { padding: 12px 24px; border-radius: 9999px; font-size: 14px; font-weight: 500; cursor: pointer; border: none; font-family: Inter, Arial, sans-serif; display: inline-flex; align-items: center; gap: 6px; transition: all 0.15s; white-space: nowrap; }
+  .btn-outline { border: 1px solid #cad2dc; background: white; color: #13263c; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+  .btn-outline:hover { background: #f0f4f8; }
+  .btn-green { background: #16a56f; color: white; }
+  .btn-green:hover { background: #12935f; }
+  .btn-dark { background: #0f2f4d; color: white; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+  .btn-dark:hover { background: #0a2238; }
+  .btn-white { background: white; color: #13263c; }
+  .btn-white:hover { background: #f5f7f9; }
+  .btn-outline-white { border: 1px solid #58718d; color: white; background: transparent; }
+  .btn-outline-white:hover { background: rgba(255,255,255,0.08); }
+  .btn-outline-white2 { border: 1px solid #6f88a3; color: white; background: transparent; }
+  .btn-outline-white2:hover { background: rgba(255,255,255,0.08); }
+  .btn-outline-dark { border: 1px solid #cfd7df; background: white; color: #22374d; }
+  .btn-outline-dark:hover { background: #f0f4f8; }
+
+  /* ══ HOME ══ */
+  .hero { max-width: 1280px; margin: 0 auto; padding: 64px 32px 96px; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+  .badge { display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; border-radius: 9999px; border: 1px solid #d6dde6; background: white; color: #66788d; font-size: 14px; font-family: Inter, Arial, sans-serif; margin-bottom: 32px; }
+  .badge-dot { width: 8px; height: 8px; border-radius: 50%; background: #19b67d; display: inline-block; flex-shrink: 0; }
+  .hero h1 { font-size: 76px; line-height: 0.95; letter-spacing: -0.02em; color: #17283d; font-family: Manrope, Georgia, serif; font-weight: 800; }
+  .hero h1 em { font-style: italic; color: #1a8a67; }
+  .hero-desc { margin-top: 32px; max-width: 540px; font-size: 18px; line-height: 2; color: #6f7f91; }
+  .hero-actions { display: flex; gap: 16px; margin-top: 40px; flex-wrap: wrap; }
+  .hero-email { margin-top: 32px; color: #56687d; font-size: 14px; }
+  .hero-stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 40px; margin-top: 56px; padding-top: 32px; border-top: 1px solid #d4dce5; max-width: 540px; }
+  .stat-label { font-size: 14px; color: #6f7f91; }
+  .stat-value { font-size: 32px; margin-top: 8px; font-family: Manrope, Georgia, serif; font-weight: 700; color: #17283d; }
+  .hero-image-wrap { position: relative; }
+  .hero-img-box { border-radius: 36px; height: 760px; width: 100%; overflow: hidden; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25); }
+  .hero-img-box img { width: 100%; height: 100%; object-fit: cover; }
+  .hero-card { position: absolute; bottom: -24px; left: 40px; background: white; border-radius: 24px; padding: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border: 1px solid #dfe5eb; width: 290px; }
+  .hero-card-row { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+  .hero-card-icon { width: 36px; height: 36px; border-radius: 50%; background: #dff5ea; display: flex; align-items: center; justify-content: center; color: #16a56f; flex-shrink: 0; }
+  .hero-card-title { font-family: Inter, Arial, sans-serif; font-weight: 600; color: #22374d; font-size: 15px; }
+  .hero-card-text { font-size: 14px; color: #6f7f91; line-height: 1.6; }
+
+  .for-whom { border-top: 1px solid #d6dde6; padding: 80px 0; }
+  .for-whom-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+  .for-whom h2 { font-size: 56px; line-height: 1.1; font-family: Manrope, Georgia, serif; font-weight: 800; color: #17283d; }
+  .for-whom-p { color: #6f7f91; font-size: 18px; line-height: 2; margin-bottom: 32px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 12px; }
+  .tag { padding: 12px 20px; border-radius: 9999px; font-size: 14px; border: 1px solid #d4dce5; background: white; color: #3a4f63; cursor: pointer; transition: all 0.15s; }
+  .tag:hover { background: #f0f4f8; }
+  .tag-active { background: #16986c; color: white; border-color: #16986c; }
+
+  .services { padding: 96px 0; border-top: 1px solid #d6dde6; }
+  .services-header { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; margin-bottom: 64px; align-items: start; }
+  .services-header h2 { font-size: 60px; line-height: 1.1; font-family: Manrope, Georgia, serif; font-weight: 800; color: #17283d; }
+  .services-header p { color: #6f7f91; font-size: 18px; line-height: 2; max-width: 480px; }
+  .services-grid { display: grid; grid-template-columns: repeat(3,1fr); border: 1px solid #d5dde5; border-radius: 28px; overflow: hidden; background: white; }
+  .service-card { padding: 40px; border-right: 1px solid #d5dde5; border-bottom: 1px solid #d5dde5; min-height: 290px; }
+  .service-card:nth-child(3n) { border-right: none; }
+  .service-card:nth-last-child(-n+3) { border-bottom: none; }
+  .service-icon-box { width: 48px; height: 48px; border-radius: 16px; background: #dff5ea; margin-bottom: 32px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+  .service-card h3 { font-size: 28px; line-height: 1.2; margin-bottom: 20px; font-family: Manrope, Georgia, serif; font-weight: 700; color: #17283d; }
+  .service-card p { color: #6f7f91; line-height: 1.75; font-size: 15px; }
+  .services-btn-wrap { display: flex; justify-content: center; margin-top: 48px; }
+
+  .concept { background: #0c2d4d; padding: 80px 0; color: white; }
+  .concept-grid { max-width: 1280px; margin: 0 auto; padding: 0 32px; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+  .concept h2 { font-size: 56px; line-height: 1.1; font-family: Manrope, Georgia, serif; font-weight: 800; }
+  .concept-desc { margin-top: 20px; color: #b4c0cf; font-size: 16px; line-height: 1.75; max-width: 500px; }
+  .concept-actions { display: flex; gap: 12px; margin-top: 32px; flex-wrap: wrap; }
+  .concept-steps { display: flex; flex-direction: column; gap: 16px; }
+  .step-card { border: 1px solid #294766; border-radius: 20px; padding: 28px 32px; display: flex; align-items: center; justify-content: space-between; gap: 24px; background: #0f3356; }
+  .step-left { display: flex; align-items: center; gap: 24px; }
+  .step-num { font-size: 40px; color: #89a2bb; font-family: Manrope, Georgia, serif; font-weight: 700; min-width: 52px; line-height: 1; }
+  .step-title { font-size: 22px; font-family: Manrope, Georgia, serif; font-weight: 600; color: white; line-height: 1.3; }
+  .step-details { display: flex; gap: 20px; color: #b4c0cf; font-size: 13px; flex-wrap: wrap; justify-content: flex-end; }
+  .step-details span { white-space: nowrap; }
+
+  .why { padding: 112px 0; }
+  .why-grid { max-width: 1280px; margin: 0 auto; padding: 0 32px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+  .why-img-box { border-radius: 32px; width: 100%; height: 620px; overflow: hidden; }
+  .why-img-box img { width: 100%; height: 100%; object-fit: cover; }
+  .why h2 { font-size: 58px; line-height: 1.1; margin-bottom: 32px; font-family: Manrope, Georgia, serif; font-weight: 800; color: #17283d; }
+  .why-lead { color: #6f7f91; font-size: 18px; line-height: 2; margin-bottom: 48px; }
+  .why-features { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+  .why-feature { display: flex; gap: 16px; }
+  .why-check { width: 28px; height: 28px; border-radius: 50%; background: #dff5ea; display: flex; align-items: center; justify-content: center; color: #16986c; flex-shrink: 0; margin-top: 4px; font-size: 13px; font-weight: 700; }
+  .why-feature h4 { font-size: 22px; line-height: 1.2; margin-bottom: 8px; font-family: Manrope, Georgia, serif; font-weight: 700; color: #17283d; }
+  .why-feature p { color: #6f7f91; font-size: 14px; line-height: 1.75; }
+
+  .refs { padding: 96px 0; border-top: 1px solid #d6dde6; }
+  .refs h2 { font-size: 58px; line-height: 1.1; max-width: 720px; margin-bottom: 16px; font-family: Manrope, Georgia, serif; font-weight: 800; color: #17283d; }
+  .refs-lead { color: #6f7f91; font-size: 18px; margin-bottom: 64px; }
+  .refs-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 32px; }
+  .ref-card { border: 1px solid #d5dde5; border-radius: 28px; padding: 40px; min-height: 280px; background: #edf1f5; }
+  .ref-num { font-size: 64px; color: #a9d0c1; line-height: 1; margin-bottom: 40px; font-family: Manrope, Georgia, serif; font-weight: 700; }
+  .ref-card h3 { font-size: 34px; line-height: 1.2; margin-bottom: 20px; font-family: Manrope, Georgia, serif; font-weight: 700; color: #17283d; }
+  .ref-card p { color: #6f7f91; line-height: 1.75; }
+
+  .cta-section { padding: 96px 0; border-top: 1px solid #d6dde6; }
+  .cta-card { background: #0d3760; border-radius: 36px; padding: 56px 64px; color: white; display: grid; grid-template-columns: 340px 1fr; gap: 64px; align-items: center; }
+  .cta-img-box { border-radius: 28px; height: 440px; overflow: hidden; }
+  .cta-img-box img { width: 100%; height: 100%; object-fit: cover; }
+  .cta-label { text-transform: uppercase; letter-spacing: 0.3em; font-size: 12px; color: #8edbbd; margin-bottom: 24px; }
+  .cta-card h2 { font-size: 56px; line-height: 1.1; font-family: Manrope, Georgia, serif; font-weight: 800; }
+  .cta-card h2 em { font-style: italic; color: #b6e5d0; }
+  .cta-card-desc { margin-top: 28px; color: #c1cddd; font-size: 17px; line-height: 2; max-width: 680px; }
+  .cta-actions { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 40px; }
+
+  footer { border-top: 1px solid #d6dde6; padding: 64px 0 0; background: #edf1f5; }
+  .footer-inner { max-width: 1280px; margin: 0 auto; padding: 0 32px; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 64px; }
+  .footer-logo-row { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; cursor: pointer; }
+  .footer-logo-row .logo-img { height: 72px; width: auto; }
+  .footer-about-text { color: #6f7f91; line-height: 1.75; font-size: 14px; max-width: 360px; }
+  footer h4 { text-transform: uppercase; letter-spacing: 0.3em; font-size: 11px; color: #6f7f91; margin-bottom: 24px; font-weight: 600; }
+  footer ul { list-style: none; display: flex; flex-direction: column; gap: 14px; color: #22374d; font-size: 14px; }
+  footer ul li { cursor: pointer; transition: color 0.15s; }
+  footer ul li:hover { color: #1a8a67; }
+  .footer-bottom { max-width: 1280px; margin: 64px auto 0; padding: 32px 32px; border-top: 1px solid #d5dde5; display: flex; justify-content: space-between; font-size: 13px; color: #7b8b9b; }
+
+  /* ══ LEISTUNGEN ══ */
+  .page-hero { padding: 72px 32px 64px; max-width: 1280px; margin: 0 auto; }
+  .page-hero h1 { font-family: Manrope, Georgia, serif; font-weight: 800; font-size: 64px; line-height: 1.05; color: #17283d; margin-bottom: 24px; }
+  .page-hero h1 em { font-style: italic; color: #1a8a67; }
+  .page-hero-desc { color: #6f7f91; font-size: 17px; line-height: 1.75; max-width: 620px; }
+
+  .sd-section { padding: 80px 0; border-top: 1px solid #d6dde6; }
+  .sd-inner { max-width: 1280px; margin: 0 auto; padding: 0 32px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+  .sd-inner.rev { direction: rtl; }
+  .sd-inner.rev > * { direction: ltr; }
+  .sd-img { border-radius: 28px; overflow: hidden; height: 480px; }
+  .sd-img-inner { width: 100%; height: 100%; }
+  .bg-clothes { background: linear-gradient(160deg,#cce0dc 0%,#a8ccc5 100%); }
+  .bg-staff { background: linear-gradient(160deg,#dce8e5 0%,#c0d8d2 100%); }
+  .bg-flat { background: linear-gradient(160deg,#e4eeeb 0%,#c8ddd8 100%); }
+  .bg-blue { background: linear-gradient(160deg,#c8dae8 0%,#a8c0d8 100%); }
+  .sd-num { font-size: 56px; color: #b8c8d8; line-height: 1; margin-bottom: 12px; font-family: Manrope, Georgia, serif; font-weight: 700; }
+  .sd-content h2 { font-family: Manrope, Georgia, serif; font-weight: 800; font-size: 40px; line-height: 1.15; color: #17283d; margin-bottom: 16px; }
+  .sd-content p { color: #6f7f91; font-size: 15px; line-height: 1.8; margin-bottom: 28px; }
+  .check-list { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 24px; list-style: none; }
+  .check-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: #22374d; line-height: 1.5; }
+  .check-list li::before { content:''; width:20px; height:20px; border-radius:50%; background: #dff5ea url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M13 4L6.5 11 3 7.5' stroke='%2316986c' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E") center/10px no-repeat; flex-shrink:0; margin-top:1px; }
+
+  .lst-cta { padding: 80px 0; border-top: 1px solid #d6dde6; }
+  .lst-cta-inner { max-width: 1280px; margin: 0 auto; padding: 0 32px; display: flex; align-items: center; justify-content: space-between; gap: 48px; }
+  .lst-cta h2 { font-family: Manrope, Georgia, serif; font-weight: 800; font-size: 44px; line-height: 1.15; color: #17283d; margin-bottom: 10px; }
+  .lst-cta p { color: #6f7f91; font-size: 15px; }
+  .lst-cta-btns { display: flex; gap: 12px; flex-shrink: 0; }
+
+  /* ══ ÜBER UNS ══ */
+  .au-hero { padding: 72px 32px 64px; max-width: 1280px; margin: 0 auto; }
+  .au-hero h1 { font-family: Manrope, Georgia, serif; font-weight: 800; font-size: 64px; line-height: 1.05; color: #17283d; margin-bottom: 20px; }
+  .au-hero h1 em { font-style: italic; color: #1a8a67; }
+  .au-hero p { color: #6f7f91; font-size: 17px; line-height: 1.75; max-width: 580px; }
+
+  .au-story { padding: 88px 0; border-top: 1px solid #d6dde6; border-bottom: 1px solid #d6dde6; }
+  .au-story-inner { max-width: 1280px; margin: 0 auto; padding: 0 32px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+  .au-img { border-radius: 28px; overflow: hidden; height: 480px; }
+  .au-img-inner { width: 100%; height: 100%; background: linear-gradient(160deg,#e4eeeb 0%,#c8ddd8 100%); display: flex; align-items: center; justify-content: center; }
+  .au-story-content h2 { font-family: Manrope, Georgia, serif; font-weight: 800; font-size: 42px; line-height: 1.15; color: #17283d; margin-bottom: 24px; }
+  .au-story-content p { color: #6f7f91; font-size: 15px; line-height: 1.8; margin-bottom: 16px; }
+
+  .au-mission { padding: 80px 0; border-bottom: 1px solid #d6dde6; }
+  .au-mission-inner { max-width: 1280px; margin: 0 auto; padding: 0 32px; display: grid; grid-template-columns: 1fr 2fr; gap: 80px; align-items: start; }
+  .au-mission-left h2 { font-family: Manrope, Georgia, serif; font-weight: 800; font-size: 42px; line-height: 1.15; color: #17283d; }
+  .au-mission-right p { color: #6f7f91; font-size: 16px; line-height: 1.85; }
+
+  .au-values { padding: 80px 0; border-bottom: 1px solid #d6dde6; }
+  .au-values-inner { max-width: 1280px; margin: 0 auto; padding: 0 32px; }
+  .au-values-hdr { margin-bottom: 56px; }
+  .au-values-hdr h2 { font-family: Manrope, Georgia, serif; font-weight: 800; font-size: 52px; line-height: 1.1; color: #17283d; }
+  .values-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 24px; }
+  .value-card { background: white; border: 1px solid #d5dde5; border-radius: 24px; padding: 36px 32px; }
+  .value-icon { width: 48px; height: 48px; border-radius: 16px; background: #dff5ea; display: flex; align-items: center; justify-content: center; color: #16a56f; margin-bottom: 24px; }
+  .value-card h3 { font-family: Manrope, Georgia, serif; font-weight: 700; font-size: 22px; color: #17283d; margin-bottom: 12px; }
+  .value-card p { color: #6f7f91; font-size: 14px; line-height: 1.75; }
+
+  .au-team { background: #0c2d4d; padding: 80px 0; color: white; }
+  .au-team-inner { max-width: 1280px; margin: 0 auto; padding: 0 32px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+  .au-team-inner .section-label { color: #7dd4b0; }
+  .au-team-left h2 { font-family: Manrope, Georgia, serif; font-weight: 800; font-size: 52px; line-height: 1.1; color: white; margin-bottom: 20px; }
+  .au-team-left p { color: #b4c0cf; font-size: 16px; line-height: 1.8; }
+  .au-team-right { display: flex; align-items: center; justify-content: flex-end; }
+
+  /* ══ KONTAKT ══ */
+  .kontakt-wrap { padding: 80px 0; }
+  .kontakt-inner { max-width: 1280px; margin: 0 auto; padding: 0 32px; display: grid; grid-template-columns: 3fr 2fr; gap: 48px; align-items: start; }
+  .cf-card { background: white; border-radius: 24px; border: 1px solid #d5dde5; padding: 56px; }
+  .cf-card h2 { font-family: Manrope, Georgia, serif; font-weight: 800; font-size: 40px; color: #17283d; margin-bottom: 8px; }
+  .cf-sub { color: #6f7f91; font-size: 14px; margin-bottom: 40px; }
+  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
+  .form-group { display: flex; flex-direction: column; gap: 6px; }
+  .form-label { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #6f7f91; }
+  .form-input, .form-select, .form-textarea { padding: 13px 16px; border: 1.5px solid #d5dde5; border-radius: 10px; background: white; font-family: Inter, Arial, sans-serif; font-size: 14px; color: #22374d; outline: none; transition: border-color 0.15s; -webkit-appearance: none; }
+  .form-input:focus, .form-select:focus, .form-textarea:focus { border-color: #16a56f; }
+  .form-select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5 7l5 5 5-5' stroke='%236f7f91' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 40px; }
+  .form-textarea { resize: vertical; min-height: 130px; line-height: 1.6; }
+  .freq-sec { margin-bottom: 20px; }
+  .freq-lbl { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #6f7f91; margin-bottom: 12px; }
+  .freq-pills { display: flex; flex-wrap: wrap; gap: 10px; }
+  .freq-pill { padding: 10px 18px; border: 1.5px solid #d5dde5; border-radius: 9999px; background: white; font-size: 13.5px; font-weight: 500; color: #3a4f63; cursor: pointer; transition: all 0.15s; font-family: Inter, Arial, sans-serif; }
+  .freq-pill:hover { background: #f0f4f8; }
+  .freq-pill.active { background: #0f2f4d; color: white; border-color: #0f2f4d; }
+  .form-disc { font-size: 12px; color: #8a9aaa; margin-top: 18px; line-height: 1.6; }
+  .ci-card { background: white; border-radius: 24px; border: 1px solid #d5dde5; padding: 40px; }
+  .ci-card h3 { font-family: Manrope, Georgia, serif; font-weight: 700; font-size: 28px; color: #17283d; margin-bottom: 32px; }
+  .ci-items { display: flex; flex-direction: column; gap: 24px; margin-bottom: 32px; }
+  .ci-item { display: flex; gap: 16px; align-items: flex-start; }
+  .ci-icon { width: 44px; height: 44px; border-radius: 14px; background: #dff5ea; display: flex; align-items: center; justify-content: center; color: #16a56f; flex-shrink: 0; }
+  .ci-lbl { font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #8a9aaa; margin-bottom: 4px; }
+  .ci-val { font-size: 14px; font-weight: 500; color: #22374d; line-height: 1.6; }
+  .btn-maps { width: 100%; padding: 14px; border: 1.5px solid #d5dde5; border-radius: 9999px; background: white; font-family: Inter, Arial, sans-serif; font-size: 14px; font-weight: 500; cursor: pointer; transition: all 0.15s; display: flex; align-items: center; justify-content: center; gap: 8px; color: #22374d; }
+  .btn-maps:hover { background: #0f2f4d; color: white; border-color: #0f2f4d; }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 52px; }
+    .hero-img-box { height: 500px; }
+    .for-whom-grid { grid-template-columns: 1fr; gap: 40px; }
+    .services-header { grid-template-columns: 1fr; gap: 24px; }
+    .services-grid { grid-template-columns: repeat(2,1fr); }
+    .service-card:nth-child(3n) { border-right: 1px solid #d5dde5; }
+    .service-card:nth-child(2n) { border-right: none; }
+    .concept-grid { grid-template-columns: 1fr; }
+    .concept h2 { font-size: 40px; }
+    .why-grid { grid-template-columns: 1fr; }
+    .why-img-box { height: 400px; }
+    .why h2 { font-size: 44px; }
+    .refs-grid { grid-template-columns: 1fr; }
+    .cta-card { grid-template-columns: 1fr; padding: 40px; }
+    .cta-img-box { height: 320px; }
+    .cta-card h2 { font-size: 40px; }
+    .footer-inner { grid-template-columns: 1fr 1fr; gap: 40px; }
+    nav { display: none; }
+    .sd-inner { grid-template-columns: 1fr; gap: 40px; }
+    .sd-inner.rev { direction: ltr; }
+    .au-story-inner { grid-template-columns: 1fr; gap: 40px; }
+    .au-mission-inner { grid-template-columns: 1fr; gap: 32px; }
+    .values-grid { grid-template-columns: repeat(2,1fr); }
+    .au-team-inner { grid-template-columns: 1fr; gap: 40px; }
+    .au-team-right { justify-content: flex-start; }
+    .kontakt-inner { grid-template-columns: 1fr; }
+    .lst-cta-inner { flex-direction: column; align-items: flex-start; }
+    .page-hero h1, .au-hero h1 { font-size: 44px; }
+  }
+  @media (max-width: 768px) {
+    .hero h1 { font-size: 38px; }
+    .hero-card { position: relative; bottom: auto; left: auto; margin-top: 24px; width: 100%; }
+    .services-grid { grid-template-columns: 1fr; }
+    .service-card:nth-child(n) { border-right: none; border-bottom: 1px solid #d5dde5; }
+    .service-card:last-child { border-bottom: none; }
+    .why-features { grid-template-columns: 1fr; }
+    .footer-inner { grid-template-columns: 1fr; gap: 32px; }
+    .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+    .check-list { grid-template-columns: 1fr; }
+    .form-grid { grid-template-columns: 1fr; }
+    .values-grid { grid-template-columns: 1fr; }
+    .header-inner { padding: 16px 20px; }
+    .hero { padding: 40px 20px 64px; }
+    .cf-card { padding: 32px 24px; }
+    .section-inner, .page-hero, .au-hero { padding-left: 20px; padding-right: 20px; }
+    .sd-inner, .au-story-inner, .au-mission-inner, .au-team-inner, .au-values-inner, .lst-cta-inner, .kontakt-inner, .concept-grid, .why-grid { padding: 0 20px; }
+    .footer-inner { padding: 0 20px; }
+    .footer-bottom { padding: 32px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-inner">
+    <div class="logo-area" onclick="showPage('home')">
+      <img src="logos/LOGO-t-darkblue.png" alt="Cleany" class="logo-img" />
+    </div>
+    <nav>
+      <a onclick="showPage('leistungen')">Leistungen</a>
+      <a onclick="showPage('ueber-uns')">Über uns</a>
+      <a onclick="showPage('kontakt')">Kontakt</a>
+    </nav>
+    <div class="header-btns">
+      <button class="btn btn-outline" onclick="showPage('kontakt')">Abholung anfragen</button>
+      <button class="btn btn-green" onclick="showPage('kontakt')">Angebot anfragen →</button>
+    </div>
+  </div>
+</header>
+
+<!-- ══════════ HOME ══════════ -->
+<div id="page-home" class="page active">
+
+  <section class="hero">
+    <div>
+      <div class="badge"><span class="badge-dot"></span>Berlin-Wilmersdorf · Mo–Fr 8:00–18:30</div>
+      <h1>Textilpflege,<br/><em>wie sie sein sollte.</em></h1>
+      <p class="hero-desc">Ihre Vollreinigung in Berlin – mit Express-Service und Abholung vor Ort. Hemden, Anzüge, Daunen und Teppiche: schonend gereinigt, pünktlich zurück. Privat und geschäftlich.</p>
+      <div class="hero-actions">
+        <button class="btn btn-dark" onclick="showPage('kontakt')">Abholung anfragen</button>
+        <button class="btn btn-green" onclick="showPage('kontakt')">Angebot anfragen →</button>
+      </div>
+      <div class="hero-email">✉ info@cleany-vollreinigung.de</div>
+      <div class="hero-stats">
+        <div><div class="stat-label">Express</div><div class="stat-value">24 h</div></div>
+        <div><div class="stat-label">Erfahrung</div><div class="stat-value">15+ Jahre</div></div>
+        <div><div class="stat-label">Abholung</div><div class="stat-value">in Berlin</div></div>
+      </div>
+    </div>
+    <div class="hero-image-wrap">
+      <div class="hero-img-box">
+        <img src="picturs/main.png" alt="Clean" />
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-row">
+          <div class="hero-card-icon">
+            <svg width="16" height="16" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="1.5"/><path d="M10 6v4l3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <div class="hero-card-title">Express-Service</div>
+        </div>
+        <div class="hero-card-text">Abholung und Lieferung innerhalb von 24 Stunden – auf Anfrage.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="for-whom">
+    <div class="section-inner for-whom-grid">
+      <div>
+        <div class="section-label section-label-green">Für wen wir reinigen</div>
+        <h2>Vom Lieblingshemd bis zur Hotelwäsche.</h2>
+      </div>
+      <div>
+        <p class="for-whom-p">Wir reinigen für Berliner Privatkunden direkt im Laden – und betreuen daneben Unternehmen aus verschiedensten Branchen.</p>
+        <div class="tags">
+          <span class="tag tag-active">Privatkunden</span>
+          <span class="tag">Hemden &amp; Anzüge</span>
+          <span class="tag">Eventlocations</span>
+          <span class="tag">Gastronomie</span>
+          <span class="tag">Medizin &amp; Praxen</span>
+          <span class="tag">Apotheken</span>
+          <span class="tag">Kosmetik &amp; Spa</span>
+          <span class="tag">Hotels</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="services">
+    <div class="section-inner">
+      <div class="services-header">
+        <div>
+          <div class="section-label section-label-green">Unsere Leistungen</div>
+          <h2>Rundum sorglos für Ihre Textilien.</h2>
+        </div>
+        <p>Vom einzelnen Hemd bis zur kompletten Berufskleidung – maßgeschneidert für Sie und Ihren Betrieb.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card"><div class="service-icon-box"><img src="icons/clean_reinigung.png" alt="Chemische Reinigung" style="width:100%;height:100%;object-fit:cover;border-radius:16px;" /></div><h3>Chemische Reinigung &amp; Nassreinigung</h3><p>Professionelle Reinigung empfindlicher Textilien mit modernsten Verfahren – schonend und gründlich zugleich.</p></div>
+        <div class="service-card"><div class="service-icon-box"><img src="icons/clean_premium-service.png" alt="Hemden- &amp; Bügelservice" style="width:100%;height:100%;object-fit:cover;border-radius:16px;" /></div><h3>Hemden- &amp; Bügelservice</h3><p>Perfekt gebügelte Hemden und Berufskleidung – bügelfrisch und faltenfrei für einen professionellen Auftritt.</p></div>
+        <div class="service-card"><div class="service-icon-box"><img src="icons/clean_pflege.png" alt="Teppich- &amp; Gardinenreinigung" style="width:100%;height:100%;object-fit:cover;border-radius:16px;" /></div><h3>Teppich- &amp; Gardinenreinigung</h3><p>Tiefenreinigung für Teppiche und Gardinen – ideal für Wohnräume, Praxisräume, Restaurants und Veranstaltungsorte.</p></div>
+        <div class="service-card"><div class="service-icon-box"><img src="icons/clean_auffrischung.png" alt="Leder- &amp; Daunenreinigung" style="width:100%;height:100%;object-fit:cover;border-radius:16px;" /></div><h3>Leder- &amp; Daunenreinigung</h3><p>Schonende Reinigung von Lederjacken, Daunenjacken und Kuscheldecken mit speziellen Pflegeverfahren.</p></div>
+        <div class="service-card"><div class="service-icon-box"><img src="icons/clean_lagerung.png" alt="Fleckenentfernung &amp; Imprägnierung" style="width:100%;height:100%;object-fit:cover;border-radius:16px;" /></div><h3>Fleckenentfernung &amp; Imprägnierung</h3><p>Hartnäckige Flecken professionell entfernt und anschließende Imprägnierung für langanhaltenden Schutz.</p></div>
+        <div class="service-card"><div class="service-icon-box"><img src="icons/clean_abholung-lieferung.png" alt="Abhol- &amp; Express-Service" style="width:100%;height:100%;object-fit:cover;border-radius:16px;" /></div><h3>Abhol- &amp; Express-Service</h3><p>Flexible Abholung und Lieferung nach Ihrem Zeitplan – auch als Express-Service innerhalb von 24 Stunden.</p></div>
+      </div>
+      <div class="services-btn-wrap">
+        <button class="btn btn-outline-dark" style="padding:16px 32px;" onclick="showPage('leistungen')">Alle Leistungen anzeigen →</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="concept">
+    <div class="concept-grid">
+      <div>
+        <div class="section-label section-label-white">Unser Servicekonzept</div>
+        <h2>So einfach arbeiten wir zusammen.</h2>
+        <p class="concept-desc">Sie bringen die Wäsche – oder wir holen sie ab. Wir reinigen, bügeln und liefern pünktlich zurück. Klare Preise, fester Ansprechpartner, keine Überraschungen.</p>
+        <div class="concept-actions">
+          <button class="btn btn-green" onclick="showPage('kontakt')">Abholung anfragen</button>
+          <button class="btn btn-outline-white" onclick="showPage('kontakt')">Angebot anfragen</button>
+        </div>
+      </div>
+      <div class="concept-steps">
+        <div class="step-card"><div class="step-left"><div class="step-num">01</div><div class="step-title">Individuelle Abholung &amp; Lieferung</div></div><div class="step-details"><span>Feste Abholtage</span><span>Flexible Zeitfenster</span><span>Express-Lösungen</span></div></div>
+        <div class="step-card"><div class="step-left"><div class="step-num">02</div><div class="step-title">Transparente Preise</div></div><div class="step-details"><span>Fixpreise &amp; Mengenrabatte</span><span>Klare Abrechnung</span><span>Keine versteckten Kosten</span></div></div>
+        <div class="step-card"><div class="step-left"><div class="step-num">03</div><div class="step-title">Zuverlässigkeit</div></div><div class="step-details"><span>Pünktliche Lieferung</span><span>Sorgfältige Behandlung</span><span>Persönlicher Ansprechpartner</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="why">
+    <div class="why-grid">
+      <div class="why-img-box"><img src="picturs/hemden.png" alt="Warum Cleany" /></div>
+      <div>
+        <div class="section-label section-label-green">Warum Cleany</div>
+        <h2>Sorgfalt, die man an jedem Kragen sieht.</h2>
+        <p class="why-lead">Wir sind eine inhabergeführte Reinigung in Berlin. Privatkunden schätzen unsere schnelle, persönliche Bedienung im Laden – Unternehmen vertrauen uns als verlässlicher B2B-Partner.</p>
+        <div class="why-features">
+          <div class="why-feature"><div class="why-check">✓</div><div><h4>Lokal verwurzelt</h4><p>In Berlin-Wilmersdorf – persönlich erreichbar.</p></div></div>
+          <div class="why-feature"><div class="why-check">✓</div><div><h4>Erfahrung mit Praxen</h4><p>Routine im Umgang mit medizinischen Einrichtungen.</p></div></div>
+          <div class="why-feature"><div class="why-check">✓</div><div><h4>Nachhaltige Verfahren</h4><p>Schonende Reinigungsmethoden für Stoffe und Umwelt.</p></div></div>
+          <div class="why-feature"><div class="why-check">✓</div><div><h4>Schnelle Reaktionszeiten</h4><p>Express-Termine, wenn es einmal eilig ist.</p></div></div>
+          <div class="why-feature"><div class="why-check">✓</div><div><h4>Professionelles Auftreten</h4><p>Saubere Übergabe, gepflegte Bügel, pünktlich.</p></div></div>
+          <div class="why-feature"><div class="why-check">✓</div><div><h4>Maßgeschneiderte Lösungen</h4><p>Privat oder geschäftlich – passend zu Ihnen.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="refs">
+    <div class="section-inner">
+      <div class="section-label section-label-green">Referenzkunden</div>
+      <h2>Diese Berliner Betriebe vertrauen uns.</h2>
+      <p class="refs-lead">Einige unserer Kunden betreuen wir bereits seit mehreren Jahren.</p>
+      <div class="refs-grid">
+        <div class="ref-card"><div class="ref-num">01</div><h3>Eventlocations</h3><p>Mehrere namhafte Veranstaltungsorte in Berlin-Mitte, Charlottenburg und Friedrichshain.</p></div>
+        <div class="ref-card"><div class="ref-num">02</div><h3>Medizinische Einrichtungen</h3><p>Zahnarztpraxen und Physiotherapiepraxen in Charlottenburg, Wilmersdorf und Schöneberg.</p></div>
+        <div class="ref-card"><div class="ref-num">03</div><h3>Apotheken &amp; Beauty</h3><p>Apotheken und Kosmetikstudios in Berlin-Charlottenburg und Umgebung.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="section-inner">
+      <div class="cta-card">
+        <div class="cta-img-box"><img src="picturs/Abhol- & Express-Service.png" alt="Abholservice" /></div>
+        <div>
+          <div class="cta-label">Jetzt starten</div>
+          <h2>Wäsche abgeben oder abholen lassen – <em>wann es Ihnen passt.</em></h2>
+          <p class="cta-card-desc">Schreiben Sie uns kurz, wann und was gereinigt werden soll. Wir melden uns mit einem unverbindlichen Angebot – meist innerhalb eines Werktags.</p>
+          <div class="cta-actions">
+            <button class="btn btn-green" onclick="showPage('kontakt')">Abholung anfragen</button>
+            <button class="btn btn-white" onclick="showPage('kontakt')">Angebot anfragen</button>
+            <button class="btn btn-outline-white2" onclick="showPage('kontakt')">Im Laden vorbeikommen</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-logo-row" onclick="showPage('home')"><img src="logos/LOGO-t-darkblue.png" alt="Cleany" class="logo-img" /></div>
+        <p class="footer-about-text">Professionelle Textilpflege in Berlin. Schnell. Sauber. Zuverlässig. Privat und geschäftlich.</p>
+      </div>
+      <div><h4>Navigation</h4><ul><li onclick="showPage('home')">Home</li><li onclick="showPage('leistungen')">Leistungen</li><li onclick="showPage('ueber-uns')">Über uns</li><li onclick="showPage('kontakt')">Kontakt</li><li>Impressum</li></ul></div>
+      <div><h4>Kontakt</h4><ul><li><a href="https://maps.google.com/?q=Wilmersdorfer+Str.+22,+10585+Berlin" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">📍 Wilmersdorfer Str. 22, 10585 Berlin</a></li><li><a href="mailto:info@cleany-vollreinigung.de" style="color:inherit;text-decoration:none;">✉ info@cleany-vollreinigung.de</a></li><li>🕒 Mo–Fr 8:00–18:30 · Sa 9:00–14:00</li></ul></div>
+    </div>
+    <div class="footer-bottom"><div>© 2026 Cleany Vollreinigung. Alle Rechte vorbehalten.</div><div>Mit Sorgfalt gemacht in Berlin.</div></div>
+  </footer>
+</div>
+
+<!-- ══════════ LEISTUNGEN ══════════ -->
+<div id="page-leistungen" class="page">
+  <div style="border-bottom:1px solid #d6dde6;">
+    <div class="page-hero">
+      <div class="section-label section-label-green">Unsere Leistungen</div>
+      <h1>Maßgeschneiderte Textilpflege<br/><em>für Sie und Ihren Betrieb.</em></h1>
+      <p class="page-hero-desc">Von der chemischen Reinigung bis zum Express-Service – mit Sorgfalt, transparenten Preisen und festen Ansprechpartnern.</p>
+    </div>
+  </div>
+
+  <div class="sd-section" style="background:#e9edf2;">
+    <div class="sd-inner">
+      <div class="sd-img"><img src="picturs/main.png" alt="Chemische Reinigung" style="width:100%;height:100%;object-fit:cover;" /></div>
+      <div class="sd-content"><div class="sd-num">01</div><h2>Chemische Reinigung &amp; Nassreinigung</h2><p>Wir reinigen Ihre empfindlichen Textilien mit modernsten Verfahren. Ob Anzüge, Blusen, Kleider oder Arbeitskleidung – unsere schonende chemische Reinigung und die umweltfreundliche Nassreinigung sorgen für beste Ergebnisse.</p><ul class="check-list"><li>Schonende Chemischreinigung</li><li>Umweltfreundliche Nassreinigung</li><li>Schonende Trocknung</li><li>Für alle Stoffarten geeignet</li><li>Fachgerechte Fleckvorbehandlung</li><li>Dampfendbügelung</li></ul></div>
+    </div>
+  </div>
+
+  <div class="sd-section" style="background:white;">
+    <div class="sd-inner rev">
+      <div class="sd-content"><div class="sd-num">02</div><h2>Hemden- &amp; Bügelservice</h2><p>Perfekt gebügelte Hemden und Berufskleidung sind Ihre Visitenkarte. Wir liefern Ihnen faltenfreie, frisch duftende Textilien – termingerecht und zuverlässig.</p><ul class="check-list"><li>Professionelle Bügelung</li><li>Schonende Stärkung</li><li>Faltenfreie Lieferung</li><li>Bügelfrische Verpackung</li><li>Auch Großmengen möglich</li><li>Individuelle Falt- und Hängeoptionen</li></ul></div>
+      <div class="sd-img"><img src="picturs/Hemden- &amp; Bügelservice.png" alt="Hemden- &amp; Bügelservice" style="width:100%;height:100%;object-fit:cover;" /></div>
+    </div>
+  </div>
+
+  <div class="sd-section" style="background:#e9edf2;">
+    <div class="sd-inner">
+      <div class="sd-img"><img src="picturs/Teppich.png" alt="Teppichreinigung" style="width:100%;height:100%;object-fit:cover;" /></div>
+      <div class="sd-content"><div class="sd-num">03</div><h2>Teppich- &amp; Gardinenreinigung</h2><p>Teppiche und Gardinen in Wohn- und Praxisräumen, Restaurants oder Veranstaltungsorten benötigen regelmäßige professionelle Reinigung. Wir entfernen zuverlässig Schmutz, Staub und Allergene.</p><ul class="check-list"><li>Tiefenreinigung mit Extraktion</li><li>Schonende Gardinenreinigung</li><li>Allergikergeeignete Verfahren</li><li>Fleckentfernung auf Teppichen</li><li>Auch für große Flächen</li><li>Geruchsneutralisierung</li></ul></div>
+    </div>
+  </div>
+
+  <div class="sd-section" style="background:white;">
+    <div class="sd-inner rev">
+      <div class="sd-content"><div class="sd-num">04</div><h2>Leder- &amp; Daunenreinigung</h2><p>Lederjacken, Daunenjacken, Kissen und Bettdecken benötigen spezielle Pflege. Wir reinigen Ihre empfindlichen Textilien mit speziellen Verfahren, die Material und Füllung schonen.</p><ul class="check-list"><li>Spezielle Lederreinigung</li><li>Schonende Daunenwäsche</li><li>Auffrischung von Farben</li><li>Imprägnierung möglich</li><li>Für Bekleidung und Heimtextilien</li><li>Pflege empfindlicher Materialien</li></ul></div>
+      <div class="sd-img"><img src="picturs/leder_01.png" alt="Lederreinigung" style="width:100%;height:100%;object-fit:cover;" /></div>
+    </div>
+  </div>
+
+  <div class="sd-section" style="background:#e9edf2;">
+    <div class="sd-inner">
+      <div class="sd-img"><img src="picturs/Fleckenentfernung &amp; Imprägnierung.png" alt="Fleckenentfernung" style="width:100%;height:100%;object-fit:cover;" /></div>
+      <div class="sd-content"><div class="sd-num">05</div><h2>Fleckenentfernung &amp; Imprägnierung</h2><p>Hartnäckige Flecken müssen nicht das Aus bedeuten. Wir entfernen professionell Kaffee-, Fett-, Wein- und andere Flecken. Anschließend imprägnieren wir Ihre Textilien für langanhaltenden Schutz.</p><ul class="check-list"><li>Professionelle Fleckdiagnose</li><li>Entfernung von Kaffee-, Fett- und Weinflecken</li><li>Biologische Fleckenentfernung</li><li>Imprägnierung gegen Wiederanschmutzung</li><li>Schutz vor Feuchtigkeit</li><li>Auffrischung der Farben</li></ul></div>
+    </div>
+  </div>
+
+  <div class="sd-section" style="background:white;">
+    <div class="sd-inner rev">
+      <div class="sd-content"><div class="sd-num">06</div><h2>Abhol- &amp; Express-Service</h2><p>Wir holen Ihre Textilien ab und liefern sie gereinigt zurück – genau dann, wenn Sie sie brauchen. Mit unserem Express-Service innerhalb von 24 Stunden sind Sie auch kurzfristig versorgt.</p><ul class="check-list"><li>Feste Abholtage</li><li>Flexible Zusatzabholungen</li><li>Express-Service (24h)</li><li>Individuelle Frequenz</li><li>Zuverlässige Termintreue</li><li>Auch am Wochenende möglich</li></ul></div>
+      <div class="sd-img"><img src="picturs/Abhol- &amp; Express-Service.png" alt="Abholservice" style="width:100%;height:100%;object-fit:cover;" /></div>
+    </div>
+  </div>
+
+  <div class="lst-cta">
+    <div class="lst-cta-inner">
+      <div>
+        <h2>Haben Sie Fragen oder wünschen ein individuelles Angebot?</h2>
+        <p>Schreiben Sie uns – wir melden uns meist innerhalb eines Werktags.</p>
+      </div>
+      <div class="lst-cta-btns">
+        <button class="btn btn-dark" onclick="showPage('kontakt')">Abholung anfragen</button>
+        <button class="btn btn-green" onclick="showPage('kontakt')">Angebot anfragen →</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div><div class="footer-logo-row" onclick="showPage('home')"><img src="logos/LOGO-t-darkblue.png" alt="Cleany" class="logo-img" /></div><p class="footer-about-text">Professionelle Textilpflege in Berlin. Schnell. Sauber. Zuverlässig. Privat und geschäftlich.</p></div>
+      <div><h4>Navigation</h4><ul><li onclick="showPage('home')">Home</li><li onclick="showPage('leistungen')">Leistungen</li><li onclick="showPage('ueber-uns')">Über uns</li><li onclick="showPage('kontakt')">Kontakt</li><li>Impressum</li></ul></div>
+      <div><h4>Kontakt</h4><ul><li><a href="https://maps.google.com/?q=Wilmersdorfer+Str.+22,+10585+Berlin" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">📍 Wilmersdorfer Str. 22, 10585 Berlin</a></li><li><a href="mailto:info@cleany-vollreinigung.de" style="color:inherit;text-decoration:none;">✉ info@cleany-vollreinigung.de</a></li><li>🕒 Mo–Fr 8:00–18:30 · Sa 9:00–14:00</li></ul></div>
+    </div>
+    <div class="footer-bottom"><div>© 2026 Cleany Vollreinigung. Alle Rechte vorbehalten.</div><div>Mit Sorgfalt gemacht in Berlin.</div></div>
+  </footer>
+</div>
+
+<!-- ══════════ ÜBER UNS ══════════ -->
+<div id="page-ueber-uns" class="page">
+  <div style="border-bottom:1px solid #d6dde6;">
+    <div class="au-hero">
+      <div class="section-label section-label-green">Über uns</div>
+      <h1>Ihre Vollreinigung <em>mitten in Berlin.</em></h1>
+      <p>Inhabergeführt in Berlin-Wilmersdorf. Schnelle, persönliche Bedienung im Laden – und ein verlässlicher Partner für Berliner Betriebe.</p>
+    </div>
+  </div>
+
+  <div class="au-story">
+    <div class="au-story-inner">
+      <div class="au-img"><img src="picturs/main.png" alt="Über uns" style="width:100%;height:100%;object-fit:cover;" /></div>
+      <div class="au-story-content">
+        <div class="section-label section-label-green">Unsere Geschichte</div>
+        <h2>Vom Kiezbetrieb zum vertrauten Partner.</h2>
+        <p>Was als kleiner Betrieb in Charlottenburg begann, ist heute eine feste Größe für Berliner Textilpflege. Wir betreuen Privatkunden direkt im Laden und kümmern uns daneben um medizinische Einrichtungen, Gastronomiebetriebe, Eventlocations und viele weitere Branchen.</p>
+        <p>Unser Fokus liegt auf zuverlässiger Qualität, pünktlicher Lieferung und persönlichem Service – seit mehreren Jahren.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="au-mission">
+    <div class="au-mission-inner">
+      <div class="au-mission-left">
+        <div class="section-label section-label-green">Unsere Mission</div>
+        <h2>Saubere Wäsche, einfach gemacht.</h2>
+      </div>
+      <div class="au-mission-right"><p>Wir machen professionelle Textilpflege für Berliner Kundinnen und Kunden unkompliziert, zuverlässig und nachhaltig. Unser Ziel ist es, Ihnen den Rücken freizuhalten – damit Sie sich auf das Wesentliche konzentrieren können. Dabei legen wir größten Wert auf umweltschonende Reinigungsverfahren und transparente Abläufe.</p></div>
+    </div>
+  </div>
+
+  <div class="au-values">
+    <div class="au-values-inner">
+      <div class="au-values-hdr">
+        <div class="section-label section-label-green">Unsere Werte</div>
+        <h2>Vier Prinzipien, die jeden Auftrag tragen.</h2>
+      </div>
+      <div class="values-grid">
+        <div class="value-card"><div class="value-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></div><h3>Qualität</h3><p>Höchste Reinigungsstandards für makellose Ergebnisse.</p></div>
+        <div class="value-card"><div class="value-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M2 12C2 12 5 5 12 5s10 7 10 7-3 7-10 7S2 12 2 12z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.5"/></svg></div><h3>Nachhaltigkeit</h3><p>Umweltschonende Verfahren und Ressourceneffizienz.</p></div>
+        <div class="value-card"><div class="value-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M12 7v5l3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div><h3>Zuverlässigkeit</h3><p>Pünktliche Lieferung und konstante Qualität.</p></div>
+        <div class="value-card"><div class="value-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" stroke="currentColor" stroke-width="1.5"/><circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="1.5"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div><h3>Partnerschaft</h3><p>Persönlicher Service auf Augenhöhe.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="au-team">
+    <div class="au-team-inner">
+      <div class="au-team-left">
+        <div class="section-label">Ihr Ansprechpartner</div>
+        <h2>Ein eingespieltes Team. Ein fester Ansprechpartner.</h2>
+        <p>Wir sind ein erfahrenes Team aus Textilpflegern und Beratern. Jeder unserer Kunden hat einen persönlichen Ansprechpartner, der Ihre Bedürfnisse kennt und für maßgeschneiderte Lösungen sorgt.</p>
+      </div>
+      <div class="au-team-right">
+        <button class="btn btn-green" style="padding:16px 32px;font-size:15px;" onclick="showPage('kontakt')">Jetzt kontaktieren →</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div><div class="footer-logo-row" onclick="showPage('home')"><img src="logos/LOGO-t-darkblue.png" alt="Cleany" class="logo-img" /></div><p class="footer-about-text">Professionelle Textilpflege in Berlin. Schnell. Sauber. Zuverlässig. Privat und geschäftlich.</p></div>
+      <div><h4>Navigation</h4><ul><li onclick="showPage('home')">Home</li><li onclick="showPage('leistungen')">Leistungen</li><li onclick="showPage('ueber-uns')">Über uns</li><li onclick="showPage('kontakt')">Kontakt</li><li>Impressum</li></ul></div>
+      <div><h4>Kontakt</h4><ul><li><a href="https://maps.google.com/?q=Wilmersdorfer+Str.+22,+10585+Berlin" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">📍 Wilmersdorfer Str. 22, 10585 Berlin</a></li><li><a href="mailto:info@cleany-vollreinigung.de" style="color:inherit;text-decoration:none;">✉ info@cleany-vollreinigung.de</a></li><li>🕒 Mo–Fr 8:00–18:30 · Sa 9:00–14:00</li></ul></div>
+    </div>
+    <div class="footer-bottom"><div>© 2026 Cleany Vollreinigung. Alle Rechte vorbehalten.</div><div>Mit Sorgfalt gemacht in Berlin.</div></div>
+  </footer>
+</div>
+
+<!-- ══════════ KONTAKT ══════════ -->
+<div id="page-kontakt" class="page">
+  <div class="kontakt-wrap">
+    <div class="kontakt-inner">
+      <div class="cf-card">
+        <h2>Angebot anfragen</h2>
+        <p class="cf-sub">Pflichtfelder sind mit * markiert.</p>
+        <div class="form-grid">
+          <div class="form-group"><label class="form-label">Name *</label><input type="text" class="form-input"/></div>
+          <div class="form-group"><label class="form-label">Firma (Optional)</label><input type="text" class="form-input"/></div>
+          <div class="form-group"><label class="form-label">E-Mail *</label><input type="email" class="form-input"/></div>
+          <div class="form-group"><label class="form-label">Telefon</label><input type="tel" class="form-input"/></div>
+          <div class="form-group"><label class="form-label">Ich bin…</label><select class="form-select"><option>Privatkunde</option><option>Unternehmen</option><option>Medizinische Einrichtung</option><option>Hotel / Gastronomie</option></select></div>
+          <div class="form-group"><label class="form-label">Branche (Optional)</label><select class="form-select"><option value="">Bitte wählen</option><option>Gastronomie</option><option>Medizin &amp; Praxen</option><option>Eventlocation</option><option>Kosmetik &amp; Spa</option><option>Hotel</option><option>Apotheke</option></select></div>
+        </div>
+        <div class="freq-sec">
+          <div class="freq-lbl">Gewünschte Abholfrequenz (Optional)</div>
+          <div class="freq-pills">
+            <button class="freq-pill" onclick="toggleFreq(this)">1x / Woche</button>
+            <button class="freq-pill" onclick="toggleFreq(this)">2x / Woche</button>
+            <button class="freq-pill" onclick="toggleFreq(this)">3x / Woche</button>
+            <button class="freq-pill" onclick="toggleFreq(this)">Flexibel</button>
+            <button class="freq-pill" onclick="toggleFreq(this)">Einmalig</button>
+          </div>
+        </div>
+        <div class="form-group"><label class="form-label">Nachricht *</label><textarea class="form-textarea" placeholder="Was sollen wir reinigen? Wann brauchen Sie es?"></textarea></div>
+        <button class="btn btn-green" style="margin-top:24px;padding:14px 28px;font-size:15px;" onclick="handleSubmit()">Angebot anfragen →</button>
+        <p class="form-disc">Mit dem Absenden erklären Sie sich einverstanden, dass wir Ihre Angaben zur Bearbeitung Ihrer Anfrage verwenden.</p>
+      </div>
+
+      <div class="ci-card">
+        <h3>Kontaktinformationen</h3>
+        <div class="ci-items">
+          <div class="ci-item"><div class="ci-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="9" r="2.5" stroke="currentColor" stroke-width="1.5"/></svg></div><div><div class="ci-lbl">Adresse</div><div class="ci-val">Wilmersdorfer Str. 22<br/>10585 Berlin</div></div></div>
+          <div class="ci-item"><div class="ci-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M2 8l10 6 10-6" stroke="currentColor" stroke-width="1.5"/></svg></div><div><div class="ci-lbl">E-Mail</div><div class="ci-val">info@cleany-vollreinigung.de</div></div></div>
+          <div class="ci-item"><div class="ci-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M12 7v5l3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div><div><div class="ci-lbl">Öffnungszeiten</div><div class="ci-val">Mo–Fr 8:00–18:30<br/>Sa 9:00–14:00</div></div></div>
+        </div>
+        <a href="https://maps.google.com/?q=Wilmersdorfer+Str.+22,+10585+Berlin" target="_blank" rel="noopener" style="text-decoration:none;"><button class="btn-maps"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="9" r="2.5" stroke="currentColor" stroke-width="1.5"/></svg>Auf Google Maps anzeigen →</button></a>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div><div class="footer-logo-row" onclick="showPage('home')"><img src="logos/LOGO-t-darkblue.png" alt="Cleany" class="logo-img" /></div><p class="footer-about-text">Professionelle Textilpflege in Berlin. Schnell. Sauber. Zuverlässig. Privat und geschäftlich.</p></div>
+      <div><h4>Navigation</h4><ul><li onclick="showPage('home')">Home</li><li onclick="showPage('leistungen')">Leistungen</li><li onclick="showPage('ueber-uns')">Über uns</li><li onclick="showPage('kontakt')">Kontakt</li><li>Impressum</li></ul></div>
+      <div><h4>Kontakt</h4><ul><li><a href="https://maps.google.com/?q=Wilmersdorfer+Str.+22,+10585+Berlin" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">📍 Wilmersdorfer Str. 22, 10585 Berlin</a></li><li><a href="mailto:info@cleany-vollreinigung.de" style="color:inherit;text-decoration:none;">✉ info@cleany-vollreinigung.de</a></li><li>🕒 Mo–Fr 8:00–18:30 · Sa 9:00–14:00</li></ul></div>
+    </div>
+    <div class="footer-bottom"><div>© 2026 Cleany Vollreinigung. Alle Rechte vorbehalten.</div><div>Mit Sorgfalt gemacht in Berlin.</div></div>
+  </footer>
+</div>
+
+<script>
+  function showPage(id) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById('page-' + id).classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+  function toggleFreq(btn) { btn.classList.toggle('active'); }
+  function handleSubmit() { alert('Vielen Dank für Ihre Anfrage!\nWir melden uns in Kürze bei Ihnen.'); }
+  document.querySelectorAll('.tag').forEach(tag => {
+    tag.addEventListener('click', function() {
+      document.querySelectorAll('.tag').forEach(t => t.classList.remove('tag-active'));
+      this.classList.add('tag-active');
+    });
+  });
+</script>
+</body>
+</html>
