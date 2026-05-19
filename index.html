@@ -74,9 +74,7 @@
   .for-whom h2 { font-size: 56px; line-height: 1.1; font-family: Manrope, Georgia, serif; font-weight: 800; color: #17283d; }
   .for-whom-p { color: #6f7f91; font-size: 18px; line-height: 2; margin-bottom: 32px; }
   .tags { display: flex; flex-wrap: wrap; gap: 12px; }
-  .tag { padding: 12px 20px; border-radius: 9999px; font-size: 14px; border: 1px solid #d4dce5; background: white; color: #3a4f63; cursor: pointer; transition: all 0.15s; }
-  .tag:hover { background: #f0f4f8; }
-  .tag-active { background: #4a90d9; color: white; border-color: #4a90d9; }
+.tag { padding: 12px 20px; border-radius: 9999px; font-size: 14px; border: 1px solid #d4dce5; background: white; color: #3a4f63; }
 
   .services { padding: 96px 0; border-top: 1px solid #d6dde6; }
   .services-header { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; margin-bottom: 64px; align-items: start; }
@@ -400,7 +398,7 @@
       <div>
         <p class="for-whom-p">Wir reinigen für Berliner Privatkunden direkt im Laden – und betreuen daneben Unternehmen aus verschiedensten Branchen.</p>
         <div class="tags">
-          <span class="tag tag-active">Privatkunden</span>
+          <span class="tag">Privatkunden</span>
           <span class="tag">Hemden &amp; Anzüge</span>
           <span class="tag">Eventlocations</span>
           <span class="tag">Gastronomie</span>
@@ -714,12 +712,6 @@
   function closeMobileMenu() { document.getElementById('mobileNav')?.classList.remove('open'); }
   function toggleFreq(btn) { btn.classList.toggle('active'); }
   function handleSubmit() { alert('Vielen Dank für Ihre Anfrage!\nWir melden uns in Kürze bei Ihnen.'); }
-  document.querySelectorAll('.tag').forEach(tag => {
-    tag.addEventListener('click', function() {
-      document.querySelectorAll('.tag').forEach(t => t.classList.remove('tag-active'));
-      this.classList.add('tag-active');
-    });
-  });
 </script>
 </body>
 </html>
