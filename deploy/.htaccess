@@ -1,0 +1,7 @@
+# Security: prevent directory listing
+Options -Indexes
+
+# PHP
+<IfModule mod_php.c>
+  php_flag display_errors Off
+</IfModule>

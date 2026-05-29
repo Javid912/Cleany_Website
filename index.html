@@ -670,28 +670,31 @@
       <div class="cf-card">
         <h2>Angebot anfragen</h2>
         <p class="cf-sub">Pflichtfelder sind mit * markiert.</p>
-        <div class="form-grid">
-          <div class="form-group"><label class="form-label">Name *</label><input type="text" class="form-input"/></div>
-          <div class="form-group"><label class="form-label">Firma (Optional)</label><input type="text" class="form-input"/></div>
-          <div class="form-group"><label class="form-label">E-Mail *</label><input type="email" class="form-input"/></div>
-          <div class="form-group"><label class="form-label">Telefon</label><input type="tel" class="form-input"/></div>
-          <div class="form-group"><label class="form-label">Ich bin…</label><select class="form-select"><option>Privatkunde</option><option>Unternehmen</option><option>Medizinische Einrichtung</option><option>Hotel / Gastronomie</option></select></div>
-          <div class="form-group"><label class="form-label">Standort *</label><select class="form-select"><option>Wilmersdorfer Str. 22, 10585 Berlin</option><option>Holzmarktstraße 66, 10179 Berlin</option></select></div>
-          <div class="form-group"><label class="form-label">Branche (Optional)</label><select class="form-select"><option value="">Bitte wählen</option><option>Gastronomie</option><option>Medizin &amp; Praxen</option><option>Eventlocation</option><option>Kosmetik &amp; Spa</option><option>Hotel</option><option>Apotheke</option></select></div>
-        </div>
-        <div class="freq-sec">
-          <div class="freq-lbl">Gewünschte Abholfrequenz (Optional)</div>
-          <div class="freq-pills">
-            <button class="freq-pill" onclick="toggleFreq(this)">1x / Woche</button>
-            <button class="freq-pill" onclick="toggleFreq(this)">2x / Woche</button>
-            <button class="freq-pill" onclick="toggleFreq(this)">3x / Woche</button>
-            <button class="freq-pill" onclick="toggleFreq(this)">Flexibel</button>
-            <button class="freq-pill" onclick="toggleFreq(this)">Einmalig</button>
+        <form action="kontakt.php" method="POST" onsubmit="return validateKontaktForm()">
+          <div class="form-grid">
+            <div class="form-group"><label class="form-label">Name *</label><input type="text" name="name" class="form-input" required/></div>
+            <div class="form-group"><label class="form-label">Firma (Optional)</label><input type="text" name="firma" class="form-input"/></div>
+            <div class="form-group"><label class="form-label">E-Mail *</label><input type="email" name="email" class="form-input" required/></div>
+            <div class="form-group"><label class="form-label">Telefon</label><input type="tel" name="telefon" class="form-input"/></div>
+            <div class="form-group"><label class="form-label">Ich bin…</label><select name="kundentyp" class="form-select"><option value="Privatkunde">Privatkunde</option><option value="Unternehmen">Unternehmen</option><option value="Medizinische Einrichtung">Medizinische Einrichtung</option><option value="Hotel / Gastronomie">Hotel / Gastronomie</option></select></div>
+            <div class="form-group"><label class="form-label">Standort *</label><select name="standort" class="form-select" required><option value="Wilmersdorfer Str. 22, 10585 Berlin">Wilmersdorfer Str. 22, 10585 Berlin</option><option value="Holzmarktstraße 66, 10179 Berlin">Holzmarktstraße 66, 10179 Berlin</option></select></div>
+            <div class="form-group"><label class="form-label">Branche (Optional)</label><select name="branche" class="form-select"><option value="">Bitte wählen</option><option value="Gastronomie">Gastronomie</option><option value="Medizin &amp; Praxen">Medizin &amp; Praxen</option><option value="Eventlocation">Eventlocation</option><option value="Kosmetik &amp; Spa">Kosmetik &amp; Spa</option><option value="Hotel">Hotel</option><option value="Apotheke">Apotheke</option></select></div>
           </div>
-        </div>
-        <div class="form-group"><label class="form-label">Nachricht *</label><textarea class="form-textarea" placeholder="Was sollen wir reinigen? Wann brauchen Sie es?"></textarea></div>
-        <button class="btn btn-green" style="margin-top:24px;padding:14px 28px;font-size:15px;" onclick="handleSubmit()">Angebot anfragen →</button>
-        <p class="form-disc">Mit dem Absenden erklären Sie sich einverstanden, dass wir Ihre Angaben zur Bearbeitung Ihrer Anfrage verwenden.</p>
+          <div class="freq-sec">
+            <div class="freq-lbl">Gewünschte Abholfrequenz (Optional)</div>
+            <div class="freq-pills">
+              <button type="button" class="freq-pill" onclick="toggleFreq(this,'1x / Woche')">1x / Woche</button>
+              <button type="button" class="freq-pill" onclick="toggleFreq(this,'2x / Woche')">2x / Woche</button>
+              <button type="button" class="freq-pill" onclick="toggleFreq(this,'3x / Woche')">3x / Woche</button>
+              <button type="button" class="freq-pill" onclick="toggleFreq(this,'Flexibel')">Flexibel</button>
+              <button type="button" class="freq-pill" onclick="toggleFreq(this,'Einmalig')">Einmalig</button>
+            </div>
+            <input type="hidden" name="frequenz" id="frequenz" value="" />
+          </div>
+          <div class="form-group"><label class="form-label">Nachricht *</label><textarea name="nachricht" class="form-textarea" placeholder="Was sollen wir reinigen? Wann brauchen Sie es?" required></textarea></div>
+          <button type="submit" class="btn btn-green" style="margin-top:24px;padding:14px 28px;font-size:15px;">Angebot anfragen →</button>
+          <p class="form-disc">Mit dem Absenden erklären Sie sich einverstanden, dass wir Ihre Angaben zur Bearbeitung Ihrer Anfrage verwenden.</p>
+        </form>
       </div>
 
       <div class="ci-card">
@@ -775,8 +778,8 @@
   }
   function toggleMobileMenu() { document.getElementById('mobileNav').classList.toggle('open'); }
   function closeMobileMenu() { document.getElementById('mobileNav')?.classList.remove('open'); }
-  function toggleFreq(btn) { btn.classList.toggle('active'); }
-  function handleSubmit() { alert('Vielen Dank für Ihre Anfrage!\nWir melden uns in Kürze bei Ihnen.'); }
+  function toggleFreq(btn, val) { document.querySelectorAll('.freq-pill').forEach(p => p.classList.remove('active')); btn.classList.add('active'); document.getElementById('frequenz').value = val; }
+  function validateKontaktForm() { var n=document.querySelector('[name="name"]').value.trim(),e=document.querySelector('[name="email"]').value.trim(),m=document.querySelector('[name="nachricht"]').value.trim(); if(!n||!e||!m){alert('Bitte füllen Sie alle Pflichtfelder aus (Name, E-Mail, Nachricht).');return false;} return true; }
 </script>
 </body>
 </html>
